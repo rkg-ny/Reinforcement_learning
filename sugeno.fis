@@ -1,0 +1,38 @@
+[System]
+Name='sugeno'
+Type='sugeno'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=5
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='RSSI'
+Range=[0 92]
+NumMFs=5
+MF1='best':'trapmf',[0 15 40 45]
+MF2='strong':'trapmf',[40 45 50 55]
+MF3='desirable':'trapmf',[50 55 60 65]
+MF5='weak':'trapmf',[60 65 70 75]
+MF5='losing':'trapmf',[70 75 80 85]
+
+[Output1]
+Name='Steplen'
+Range=[-300 300]
+NumMFs=5
+MF1='stepout':'linear',[0 3]
+MF2='walk':'linear',[0 2]
+MF3='leap':'linear',[0 1]
+MF4='jog':'linear',[0 -8]
+MF5='run':'linear',[0 -10]
+[Rules]
+1, 1 (1) : 1
+2, 2 (1) : 1
+3, 3 (1) : 1
+4, 4 (1) : 1
+5, 5 (1) : 1
